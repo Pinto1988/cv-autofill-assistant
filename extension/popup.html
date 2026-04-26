@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Autofill Assistant</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <section class="hero">
+        <p class="eyebrow">MVP locale</p>
+        <h1>CV Autofill Assistant</h1>
+        <p class="subtitle">
+          Carica il CV, controlla i dati estratti e compila la pagina aperta.
+        </p>
+      </section>
+
+      <section class="card">
+        <label class="file-picker" for="cvFile">
+          <span>CV in PDF o TXT</span>
+          <input id="cvFile" type="file" accept=".pdf,.txt,.md" />
+        </label>
+        <div class="actions">
+          <button id="extractButton" class="primary">Estrai e salva</button>
+          <button id="clearButton" class="secondary">Cancella profilo</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <h2>Profilo salvato</h2>
+          <button id="saveProfileButton" class="secondary">Salva modifiche</button>
+        </div>
+        <div id="profileSummary" class="summary empty">Nessun profilo salvato.</div>
+        <label class="editor-label" for="profileEditor">JSON modificabile</label>
+        <textarea
+          id="profileEditor"
+          spellcheck="false"
+          placeholder="{ }"
+        ></textarea>
+      </section>
+
+      <section class="card">
+        <div class="actions">
+          <button id="fillButton" class="primary">Compila questa pagina</button>
+        </div>
+        <p class="hint">
+          L’estensione prova a riempire nome, contatti, indirizzo, ruolo, bio e altri campi comuni.
+        </p>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
